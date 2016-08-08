@@ -70,10 +70,5 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",
     "uuid": "^2.0.2"
-  },
-  "pre-commit": [
-    "lint",
-    "validate",
-    "testOnce"
-  ]
+  }
 }

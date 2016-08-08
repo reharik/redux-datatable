@@ -1,4 +1,6 @@
-// export const INCREMENT_DATE = 'redux-dataview/column/INCREMENT_DATE';
+export const DATA_REQUEST = 'redux-datatable/rows/DATA_REQUEST';
+export const DATA_FAILURE = 'redux-datatable/rows/DATA_FAILURE';
+export const DATA_SUCCESS = 'redux-datatable/rows/DATA_SUCCESS';
 import uuid from 'uuid';
 
 const rowData= [
