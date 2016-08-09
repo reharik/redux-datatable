@@ -2,61 +2,64 @@ import React from 'react';
 import { Table } from '../../app/src/index';
 
 export default () => {
+//example of custom component rendering
+  const EmailLink = ({column, value, row}) => (
+    <div>
+      <a href={'mailto:' + value}>{value}</a>
+    </div>);
 
-  // const a = uuid.v4();
-  // const b = uuid.v4();
-  // const c = uuid.v4();
-  // const d = uuid.v4();
-  // const getData = function() {
-  //   return {
-  //     tasks: [
-  //       {
-  //         display: 'fuck you!1',
-  //         startTime: '8:00 AM',
-  //         endTime: '9:00 AM',
-  //         date: new Date(),
-  //         id: a,
-  //         color: 'red'
-  //       },
-  //       {
-  //         display: 'fuck you!2',
-  //         startTime: '8:30 AM',
-  //         endTime: '9:30 AM',
-  //         date: new Date(),
-  //         id: b,
-  //         color: 'red'
-  //       },
-  //       {
-  //         display: 'fuck you!3',
-  //         startTime: '8:30 AM',
-  //         endTime: '9:00 AM',
-  //         date: new Date(),
-  //         id: c,
-  //         color: 'red'
-  //       },
-  //       {
-  //         display: 'fuck you!4',
-  //         startTime: '9:00 AM',
-  //         endTime: '10:00 AM',
-  //         date: new Date(),
-  //         id: d,
-  //         color: 'red'
-  //       }
-  //     ]
-  //   };
-  // };
-  //
-  // const retrieveData = (startDate, endDate, dispatch) => {
-  //   var data = getData();
-  //   // window.setTimeout(function() {
-  //     dispatch({type: RETRIEVE_TASKS_SUCCESS, data});
-  //   // }, 100);
-  //   dispatch({
-  //     type: RETRIEVE_TASKS_REQUEST
-  //   });
-  // };
+  const columns= [
+    {
+      property:'firstName',
+      display:'First Name',
+      width: '100px',
+      className: 'additional-class',
+      headerClassName: 'someHeaderName',
+      format: ({column, value, row}) => {
+        return (
+          <span> Name: { value } </span>
+        );
+      },
+      hidden: false
+    },
+    {
+      property:'lastName',
+      display:'Last Name',
+      width: '100px',
+      className: 'additional-class',
+      headerClassName: 'someHeaderName',
+      format: ({ column, value, row }) => {
+        return (
+          <span> Name: { value } </span>
+        );
+      },
+      hidden: false
+    },
+    {
+      property: 'email',
+      display: 'Email',
+      width: '100px',
+      className: 'additional-class',
+      headerClassName: 'someHeaderName',
+      format: EmailLink,
+      headerFormat: ({ column, value, row }) => {
+        return (<div style={{color:"Red"}} >value</div>);
+      },
+      hidden: false
+    },
+    {
+      property:'id',
+      hidden: true
+    }
+  ];
+
+  const config = {
+      bulkSelection: {
+        mode: 'multiple'
+    }
+  };
 
   return (<div className="app" >
-    <Table />
+    <Table config={config} columns={columns} />
   </div>);
 };

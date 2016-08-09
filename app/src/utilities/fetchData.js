@@ -24,20 +24,22 @@ const handleUrl = function() {
 
 const handlePromise = function() {
   config.dataSource()
-    .then(({json, response}) => {
-      if (!response.ok) {
+    .then(response => {
+      if (!response || !response.ok) {
         dispatch({
           type: DATA_FAILURE,
-          error: error.message || 'wtf'
-
+          error: response.error || response.message || 'wtf'
         });
-        return Promise.reject(json)
       }
       dispatch({
         type: DATA_SUCCESS,
         data: response
       })
     })
+};
+
+const handleDispatch = function() {
+  dispatch(config.dispatchDataSource());
 };
 
 function fetchData() {
@@ -48,6 +50,8 @@ function fetchData() {
     handlePromise();
   } else if (typeof config.dataSource === 'string') {
     handleUrl();
+  } else if (typeof config.dispatchDataSource === 'function'){
+    handleDispatch();
   }
 }
 

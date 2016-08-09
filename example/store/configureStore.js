@@ -2,13 +2,13 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 
-import gridReducers from './../reducers';
+import tableReducers from './../reducers';
 import DevTools from '../components/DevTools';
 
 
 export default function configureStore(initialState) {
   const store = createStore(
-        gridReducers,
+        tableReducers,
         initialState,
         compose(
             applyMiddleware(createLogger()),
