@@ -1,5 +1,5 @@
 import columnReducer from './columnModule';
-import rowReducer from './rowsModule';
-import bulkActionReducer from './bulkactionModule'
+import dataRowReducer from './dataRowModule';
+import headerReducer from './headerModule';
 
-export default { columns: columnReducer, tableData: rowReducer, bulkAction: bulkActionReducer };
+export default { columns: columnReducer, tableData: dataRowReducer, header:headerReducer };

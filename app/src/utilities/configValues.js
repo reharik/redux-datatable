@@ -1,12 +1,18 @@
+import deepAssign from 'deep-assign';
 
-const config = {
-  dataSource: null
+let config = {
+  dataSource: null,
+  bulkSelection: {
+    mode:'none',
+    identityColumn: 'id'
+  }
   //bunch of default values here;
 };
 
 export function updateConfigs(newConfig) {
   //TODO validate configs as we define them
-  return Object.assign(config, newConfig);
+  deepAssign(config, newConfig);
+  return config;
 }
 
 export { config };

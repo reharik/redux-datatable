@@ -1,28 +1,46 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { selectAll, deselectAll, setSelection } from './../modules/bulkactionModule';
-import uuid from 'uuid';
+import { selectAll, deselectAll, setSelection, handleSelectionEvent } from '../modules/dataRowModule';
 
-const change = function(e, row, column, isHeader) {
-  if(isHeader){
+const checkBox = ({column, row, identityColumn, dispatch}) => {
+  const change = function(e, row, column) {
+      return handleSelectionEvent(setSelection(column, row[identityColumn], e.currentTarget.checked), dispatch);
+  };
+  const selected = row.metaData ? row.metaData.selected : false;
+  return (
+    <div>
+      <input type="checkbox" checked={selected}  onChange={e => change(e, row, column) }/>
+    </div>);
+};
+
+const headerCheckBox = ({selectAllChecked, dispatch}) => {
+  const change = function(e) {
     if(e.currentTarget.checked){
-      return selectAll();
+      return handleSelectionEvent(selectAll(), dispatch);
     } else {
-      return deselectAll();
+      return handleSelectionEvent(deselectAll(), dispatch);
     }
-  } else {
-    return setSelection(column, row.id);
-  }
-  // selectAll, deselectAll, setSelection
+  };
+  return (
+    <div>
+      <input type="checkbox" checked={selectAllChecked} onChange={e => change(e) }/>
+    </div>);
 };
 
-const checkBoxFactory = function(className, isHeader) {
-  return  ({column, value, row}) => {
-    return (
-      <div>
-        <input type="checkbox" className={className} onChange={e => change(e, row, column, isHeader) }/>
-      </div>);
+const CheckBox = connect()(checkBox);
+const HeaderCheckBox = connect( x=> ({selectAllChecked: x.header.selectAll}))(headerCheckBox);
+
+export function bulkSelectionColumn(config) {
+  return {
+    bulkSelection: config.bulkSelection,
+    property: 'checkbox',
+    width: '30px',
+    format: ({column, value, row}) => (<CheckBox
+      column={column}
+      row={row}
+      identityColumn={config.bulkSelection.identityColumn}/>),
+    headerFormat: ({column, value, row}) => (<HeaderCheckBox />),
+    hidden: false
   }
-};
-export default (checkBoxFactory);
+}
 

@@ -1,5 +1,5 @@
 import 'isomorphic-fetch';
-import { DATA_REQUEST, DATA_FAILURE, DATA_SUCCESS } from './../modules/rowsModule'
+import { DATA_REQUEST, DATA_FAILURE, DATA_SUCCESS } from '../modules/dataRowModule'
 import { config } from './configValues';
 
 const handleUrl = function() {
