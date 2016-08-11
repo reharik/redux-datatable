@@ -16,3 +16,7 @@ export function updateConfigs(newConfig) {
 }
 
 export { config };
+
+// schema for bulkSelection
+//  mode = multiple | single | disabled | none -> default multiple
+// identityColumn -> default 'id' it is required to have either an id or some other identifying column
