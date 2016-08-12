@@ -1,7 +1,7 @@
 import deepAssign from 'deep-assign';
 
 let config = {
-  dataSource: null,
+  dataSource: '',
   bulkSelection: {
     mode:'none',
     identityColumn: 'id'

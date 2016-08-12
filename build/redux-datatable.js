@@ -398,7 +398,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var config = {
-	  dataSource: null,
+	  dataSource: '',
 	  bulkSelection: {
 	    mode: 'none',
 	    identityColumn: 'id'
