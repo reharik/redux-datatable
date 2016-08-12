@@ -60,7 +60,7 @@ export default () => {
     }
   };
 
-  return (<div className="app" >
+  return (<div className="-redux__dataview-app" >
     <Table config={config} columns={columns} />
   </div>);
 };

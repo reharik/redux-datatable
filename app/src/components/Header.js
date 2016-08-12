@@ -10,7 +10,7 @@ const Header = ({columns}) => {
       : text;
   };
   return (
-    <div className="table__header">
+    <div className="-redux__dataview-table__header">
       { columns.map(c => (<HeaderCell value={getValue(c)} column={c} key={uuid.v4()} /> )) }
     </div>);
 };

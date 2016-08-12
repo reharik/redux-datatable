@@ -23,16 +23,25 @@ const webpackConfig = {
     filename: 'redux-dataview.js',
     library: 'dataview',
     libraryTarget: 'commonjs'
-
   },
 
+  externals: {
+    "react":"react",
+    "react-dom":"react-dom",
+    "react-hot-loader":"react-hot-loader",
+    "react-redux": "react-redux",
+    "redux": "redux",
+    "redux-logger": "redux-logger",
+    "redux-thunk": "redux-thunk"
+  },
+  
   module: {
     loaders: [
       { test: /\.jsx?$/, include: [ path.resolve(__dirname, 'app')], loader: 'babel'},
       {
         test: /\.css$/,
         include: [ path.resolve(__dirname, 'app/src/css') ],
-        loader: ExtractTextPlugin.extract('style', 'css-loader?modules&importLoaders=1&localIdentName=[local][--RAIF--]!postcss-loader')
+        loader: ExtractTextPlugin.extract('style', 'css-loader?modules&importLoaders=1&localIdentName=[redux__dataview][local]!postcss-loader')
         // loader: 'style!css-loader?sourceMap=1&modules&importLoaders=1&localIdentName=[local]!postcss-loader'
       }
     ]

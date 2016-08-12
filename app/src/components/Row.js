@@ -16,7 +16,7 @@ const Row = ({columns, data}) => {
   });
 
   return (
-    <div className="table__row">
+    <div className="-redux__dataview-table__row">
       {cells}
     </div>
   )
