@@ -71,7 +71,7 @@ const webpackConfig = {
       template: './../../example/index.tmpl.html',
       inject: true,
       hash: true,
-      cache: true,
+      // cache: true,
       // chunks: ['app'],
       chunksSortMode: 'dependency',
       showErrors: true
