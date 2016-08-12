@@ -1,5 +1,7 @@
 import React from 'react';
 import { Table } from '../../app/src/index';
+import Promise from 'bluebird';
+import uuid from 'uuid';
 
 export default () => {
 //example of custom component rendering
@@ -53,11 +55,24 @@ export default () => {
     }
   ];
 
+  const data= [
+    {
+      firstName:'Raif', lastName:'Harik', email:'f@u.com', id:uuid.v4()
+    },
+    {
+      firstName:'Robbie', lastName:'Fuentes', email:'robbie@fuenties.com', id:uuid.v4()
+    }
+  ];
+
+  const dataSource = function() {
+    return Promise.resolve(data);
+  };
 
   const config = {
       bulkSelection: {
         mode:'single'
-    }
+    },
+    dataSource
   };
 
   return (<div className="redux__datatable__app" >

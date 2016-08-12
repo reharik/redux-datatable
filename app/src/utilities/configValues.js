@@ -1,4 +1,4 @@
-import deepAssign from 'deep-assign';
+import {merge} from 'lodash';
 
 let config = {
   dataSource: '',
@@ -11,7 +11,7 @@ let config = {
 
 export function updateConfigs(newConfig) {
   //TODO validate configs as we define them
-  deepAssign(config, newConfig);
+  merge(config, newConfig);
   return config;
 }
 

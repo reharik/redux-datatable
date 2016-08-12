@@ -1,8 +1,7 @@
 import 'isomorphic-fetch';
 import { DATA_REQUEST, DATA_FAILURE, DATA_SUCCESS } from '../modules/dataRowModule'
-import { config } from './configValues';
-
-const handleUrl = function() {
+var config;
+const handleUrl = function(dispatch) {
   fetch(config.dataSource)
     .then(response =>
       response.json().then(json => ({json, response}))
@@ -22,7 +21,7 @@ const handleUrl = function() {
   })
 };
 
-const handlePromise = function() {
+const handlePromise = function(dispatch) {
   config.dataSource()
     .then(response => {
       if (!response || !response.ok) {
@@ -38,20 +37,21 @@ const handlePromise = function() {
     })
 };
 
-const handleDispatch = function() {
+const handleDispatch = function(dispatch) {
   dispatch(config.dispatchDataSource());
 };
 
-function fetchData() {
+function fetchData(dispatch, _config) {
+  config = _config;
   dispatch({
     type: DATA_REQUEST
   });
   if (typeof config.dataSource === 'function') {
-    handlePromise();
+    handlePromise(dispatch);
   } else if (typeof config.dataSource === 'string') {
-    handleUrl();
+    handleUrl(dispatch);
   } else if (typeof config.dispatchDataSource === 'function'){
-    handleDispatch();
+    handleDispatch(dispatch);
   }
 }
 

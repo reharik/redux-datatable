@@ -10,17 +10,12 @@ export const SELECT_ALL = 'redux-datatable/bulkAction/SELECT_ALL';
 export const DESELECT_ALL = 'redux-datatable/bulkAction/DESELECT_ALL';
 export const SET_SELECTION = 'redux-datatable/bulkAction/SET_SELECTION';
 
-const rowData= [
-  {
-    firstName:'Raif', lastName:'Harik', email:'f@u.com', id:uuid.v4()
-  },
-  {
-    firstName:'Robbie', lastName:'Fuentes', email:'robbie@fuenties.com', id:uuid.v4()
-  }
-];
 
-export default (state = rowData, action = null) => {
+export default (state = [], action = null) => {
   switch (action.type) {
+    case DATA_REQUEST: {
+      
+    }
     case SELECT_ALL:
     {
       return state.map(x => {
