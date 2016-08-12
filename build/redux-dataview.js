@@ -1,5 +1,14 @@
-exports["dataview"] =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("react"), require("react-redux"));
+	else if(typeof define === 'function' && define.amd)
+		define(["react", "react-redux"], factory);
+	else if(typeof exports === 'object')
+		exports["dataview"] = factory(require("react"), require("react-redux"));
+	else
+		root["dataview"] = factory(root["react"], root["react-redux"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_14__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -210,7 +219,7 @@ exports["dataview"] =
 /* 5 */
 /***/ function(module, exports) {
 
-	module.exports = require("react");
+	module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
 
 /***/ },
 /* 6 */
@@ -832,7 +841,7 @@ exports["dataview"] =
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = require("react-redux");
+	module.exports = __WEBPACK_EXTERNAL_MODULE_14__;
 
 /***/ },
 /* 15 */
@@ -1260,4 +1269,6 @@ exports["dataview"] =
 	;
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;

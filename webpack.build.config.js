@@ -22,7 +22,7 @@ const webpackConfig = {
     publicPath: '/',
     filename: 'redux-dataview.js',
     library: 'dataview',
-    libraryTarget: 'commonjs'
+    libraryTarget: 'umd'
   },
 
   externals: {
