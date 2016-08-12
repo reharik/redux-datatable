@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["react", "react-redux"], factory);
 	else if(typeof exports === 'object')
-		exports["dataview"] = factory(require("react"), require("react-redux"));
+		exports["datatable"] = factory(require("react"), require("react-redux"));
 	else
-		root["dataview"] = factory(root["react"], root["react-redux"]);
+		root["datatable"] = factory(root["react"], root["react-redux"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_5__, __WEBPACK_EXTERNAL_MODULE_14__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -63,7 +63,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"id":"_-redux__dataview-id","table__row":"_-redux__dataview-table__row","table__header":"_-redux__dataview-table__header","row__cell":"_-redux__dataview-row__cell","header__cell":"_-redux__dataview-header__cell"};
+	module.exports = {"id":"redux__datatable__id","table__row":"redux__datatable__table__row","table__header":"redux__datatable__table__header","row__cell":"redux__datatable__row__cell","header__cell":"redux__datatable__header__cell"};
 
 /***/ },
 /* 2 */
@@ -161,7 +161,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var SET_COLUMNS = exports.SET_COLUMNS = 'redux-dataview/column/SET_COLUMNS';
+	var SET_COLUMNS = exports.SET_COLUMNS = 'redux-datatable/column/SET_COLUMNS';
 
 	var _default = function _default() {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
@@ -253,10 +253,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DATA_REQUEST = exports.DATA_REQUEST = 'redux-datatable/rows/DATA_REQUEST';
 	var DATA_FAILURE = exports.DATA_FAILURE = 'redux-datatable/rows/DATA_FAILURE';
 	var DATA_SUCCESS = exports.DATA_SUCCESS = 'redux-datatable/rows/DATA_SUCCESS';
-	var NO_EVENT = exports.NO_EVENT = 'redux-dataview/bulkAction/NO_EVENT';
-	var SELECT_ALL = exports.SELECT_ALL = 'redux-dataview/bulkAction/SELECT_ALL';
-	var DESELECT_ALL = exports.DESELECT_ALL = 'redux-dataview/bulkAction/DESELECT_ALL';
-	var SET_SELECTION = exports.SET_SELECTION = 'redux-dataview/bulkAction/SET_SELECTION';
+	var NO_EVENT = exports.NO_EVENT = 'redux-datatable/bulkAction/NO_EVENT';
+	var SELECT_ALL = exports.SELECT_ALL = 'redux-datatable/bulkAction/SELECT_ALL';
+	var DESELECT_ALL = exports.DESELECT_ALL = 'redux-datatable/bulkAction/DESELECT_ALL';
+	var SET_SELECTION = exports.SET_SELECTION = 'redux-datatable/bulkAction/SET_SELECTION';
 
 	var rowData = [{
 	  firstName: 'Raif', lastName: 'Harik', email: 'f@u.com', id: _uuid2.default.v4()
@@ -936,7 +936,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	  return _react2.default.createElement(
 	    'div',
-	    { className: '-redux__dataview-table__header' },
+	    { className: 'redux__datatable__table__header' },
 	    columns.map(function (c) {
 	      return _react2.default.createElement(_HeaderCell2.default, { value: getValue(c), column: c, key: _uuid2.default.v4() });
 	    })
@@ -982,7 +982,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var value = _ref.value;
 
 	  var style = column.hidden ? { display: 'none' } : { width: column.width || '100px' };
-	  var className = '-redux__dataview-header__cell ' + (column.headerClassName || '');
+	  var className = 'redux__datatable__header__cell ' + (column.headerClassName || '');
 
 	  return _react2.default.createElement(
 	    'div',
@@ -1047,7 +1047,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: '-redux__dataview-table__row' },
+	    { className: 'redux__datatable__table__row' },
 	    cells
 	  );
 	};
@@ -1091,7 +1091,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var style = _ref.style;
 	  var className = _ref.className;
 
-	  var cName = '-redux__dataview-row__cell ' + (className || '');
+	  var cName = 'redux__datatable__row__cell ' + (className || '');
 	  return _react2.default.createElement(
 	    'div',
 	    { className: cName, style: style },

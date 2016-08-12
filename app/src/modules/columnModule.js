@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SET_COLUMNS = 'redux-dataview/column/SET_COLUMNS';
+export const SET_COLUMNS = 'redux-datatable/column/SET_COLUMNS';
 
 export default (state = [], action = null) => {
   if(action.type === SET_COLUMNS){

@@ -15,7 +15,7 @@ const webpackConfig = {
     host: '0.0.0.0',
     port: '8080',
 
-    contentBase: path.resolve(__dirname, 'src'),
+    contentBase: path.resolve(__dirname, './../../example/index.tmpl.html'),
     historyApiFallback: true,
 
     hot: true,
@@ -43,7 +43,7 @@ const webpackConfig = {
   devtool: 'cheap-module-eval-source-map', //javascript sourcemaps
 
   entry: {
-    redux_tableview: [
+    redux_tabletable: [
       'react-hot-loader/patch',
       './../../example/index.js'
     ]
@@ -61,7 +61,7 @@ const webpackConfig = {
         test: /\.css$/,
         include: [ path.resolve(__dirname, 'app/src/css'), path.resolve(__dirname, 'example/css/app.css') ],
         // loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader')
-        loader: 'style!css-loader?sourceMap=1&modules&importLoaders=1&localIdentName=[-redux__dataview-][local]!postcss-loader'
+        loader: 'style!css-loader?sourceMap=1&modules&importLoaders=1&localIdentName=redux__datatable__[local]!postcss-loader'
       }
     ]
   },

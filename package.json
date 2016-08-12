@@ -1,10 +1,10 @@
 {
-  "name": "redux-dataview",
+  "name": "redux-datatable",
   "version": "0.0.1",
   "description": "",
-  "main": "build/redux-dataview.js",
+  "main": "build/redux-datatable.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --config ",
+    "start": "webpack-dev-server --progress --config ./webpack.config.js",
     "build": "webpack --config ./webpack.build.config.js --progress",
     "test": "NODE_ENV=test mocha -w --recursive --compilers js:babel-core/register ./app/tests/**",
     "testOnce": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register ./app/tests/**",

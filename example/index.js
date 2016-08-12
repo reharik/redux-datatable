@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import App from './components/App';
-import './../build/redux-dataview.css';
+import './../app/src/css/index.css';
 import './css/app.css';
 
 const store = configureStore();

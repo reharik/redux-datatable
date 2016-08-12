@@ -5,10 +5,10 @@ import uuid from 'uuid';
 export const DATA_REQUEST = 'redux-datatable/rows/DATA_REQUEST';
 export const DATA_FAILURE = 'redux-datatable/rows/DATA_FAILURE';
 export const DATA_SUCCESS = 'redux-datatable/rows/DATA_SUCCESS';
-export const NO_EVENT = 'redux-dataview/bulkAction/NO_EVENT';
-export const SELECT_ALL = 'redux-dataview/bulkAction/SELECT_ALL';
-export const DESELECT_ALL = 'redux-dataview/bulkAction/DESELECT_ALL';
-export const SET_SELECTION = 'redux-dataview/bulkAction/SET_SELECTION';
+export const NO_EVENT = 'redux-datatable/bulkAction/NO_EVENT';
+export const SELECT_ALL = 'redux-datatable/bulkAction/SELECT_ALL';
+export const DESELECT_ALL = 'redux-datatable/bulkAction/DESELECT_ALL';
+export const SET_SELECTION = 'redux-datatable/bulkAction/SET_SELECTION';
 
 const rowData= [
   {

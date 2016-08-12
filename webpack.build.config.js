@@ -20,8 +20,8 @@ const webpackConfig = {
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
-    filename: 'redux-dataview.js',
-    library: 'dataview',
+    filename: 'redux-datatable.js',
+    library: 'datatable',
     libraryTarget: 'umd'
   },
 
@@ -41,7 +41,7 @@ const webpackConfig = {
       {
         test: /\.css$/,
         include: [ path.resolve(__dirname, 'app/src/css') ],
-        loader: ExtractTextPlugin.extract('style', 'css-loader?modules&importLoaders=1&localIdentName=[redux__dataview][local]!postcss-loader')
+        loader: ExtractTextPlugin.extract('style', 'css-loader?modules&importLoaders=1&localIdentName=redux__datatable__[local]!postcss-loader')
         // loader: 'style!css-loader?sourceMap=1&modules&importLoaders=1&localIdentName=[local]!postcss-loader'
       }
     ]
@@ -50,7 +50,7 @@ const webpackConfig = {
   plugins: [
     //see possible syntax errors at the browser console instead of hmre overlay
     new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin('redux-dataview.css', { allChunks: true})
+    new ExtractTextPlugin('redux-datatable.css', { allChunks: true})
   ],
 
   postcss() {
