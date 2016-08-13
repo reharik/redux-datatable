@@ -9,7 +9,7 @@ const precss = require('precss');
 const postcssImport = require('postcss-import');
 
 const webpackConfig = {
-  context: path.resolve(__dirname, 'app/src'),
+  context: path.resolve(__dirname, 'src'),
 
   entry: {
     app: [
@@ -18,7 +18,7 @@ const webpackConfig = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'lib'),
     publicPath: '/',
     filename: 'redux-datatable.js',
     library: 'datatable',
@@ -34,13 +34,13 @@ const webpackConfig = {
     "redux-logger": "redux-logger",
     "redux-thunk": "redux-thunk"
   },
-  
+
   module: {
     loaders: [
-      { test: /\.jsx?$/, include: [ path.resolve(__dirname, 'app')], loader: 'babel'},
+      { test: /\.jsx?$/, include: [ path.resolve(__dirname, 'src')], loader: 'babel'},
       {
         test: /\.css$/,
-        include: [ path.resolve(__dirname, 'app/src/css') ],
+        include: [ path.resolve(__dirname, 'src/css') ],
         loader: ExtractTextPlugin.extract('style', 'css-loader?modules&importLoaders=1&localIdentName=redux__datatable__[local]!postcss-loader')
         // loader: 'style!css-loader?sourceMap=1&modules&importLoaders=1&localIdentName=[local]!postcss-loader'
       }

@@ -9,13 +9,13 @@ const precss = require('precss');
 const postcssImport = require('postcss-import');
 
 const webpackConfig = {
-  context: path.resolve(__dirname, 'app/src'),
+  context: path.resolve(__dirname, 'src'),
 
   devServer: {
     host: '0.0.0.0',
     port: '8080',
 
-    contentBase: path.resolve(__dirname, './../../example/index.tmpl.html'),
+    contentBase: path.resolve(__dirname, './../example/index.tmpl.html'),
     historyApiFallback: true,
 
     hot: true,
@@ -45,7 +45,7 @@ const webpackConfig = {
   entry: {
     redux_tabletable: [
       'react-hot-loader/patch',
-      './../../example/index.js'
+      './../example/index.js'
     ]
   },
   output: {
@@ -56,10 +56,10 @@ const webpackConfig = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, include: [ path.resolve(__dirname, 'app'), path.resolve(__dirname, 'example') ], loader: 'babel'},
+      { test: /\.jsx?$/, include: [ path.resolve(__dirname, 'src'), path.resolve(__dirname, 'example') ], loader: 'babel'},
       {
         test: /\.css$/,
-        include: [ path.resolve(__dirname, 'app/src/css'), path.resolve(__dirname, 'example/css/app.css') ],
+        include: [ path.resolve(__dirname, 'src/css'), path.resolve(__dirname, 'example/css/app.css') ],
         // loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader')
         loader: 'style!css-loader?sourceMap=1&modules&importLoaders=1&localIdentName=redux__datatable__[local]!postcss-loader'
       }
@@ -68,7 +68,7 @@ const webpackConfig = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './../../example/index.tmpl.html',
+      template: './../example/index.tmpl.html',
       inject: true,
       hash: true,
       // cache: true,

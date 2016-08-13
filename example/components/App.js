@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from '../../app/src/index';
+import { Table } from '../../src/index';
 import Promise from 'bluebird';
 import uuid from 'uuid';
 

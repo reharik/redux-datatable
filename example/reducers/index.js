@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { tableReducers } from '../../app/src/index';
+import { tableReducers } from '../../src/index';
 
 const reducers = combineReducers({
   ...tableReducers
