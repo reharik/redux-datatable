@@ -1,6 +1,8 @@
 import 'isomorphic-fetch';
 import { DATA_REQUEST, DATA_FAILURE, DATA_SUCCESS } from '../modules/dataRowModule'
+
 var config;
+
 const handleUrl = function(dispatch) {
   fetch(config.dataSource)
     .then(response =>
@@ -16,7 +18,7 @@ const handleUrl = function(dispatch) {
     }
     dispatch({
       type: DATA_SUCCESS,
-      data: response
+      data: response.data
     })
   })
 };
@@ -29,10 +31,11 @@ const handlePromise = function(dispatch) {
           type: DATA_FAILURE,
           error: response.error || response.message || 'wtf'
         });
+      return;
       }
       dispatch({
         type: DATA_SUCCESS,
-        data: response
+        data: response.data
       })
     })
 };

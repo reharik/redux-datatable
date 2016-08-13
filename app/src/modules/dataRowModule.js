@@ -1,6 +1,7 @@
 import { config } from './../utilities/configValues';
 import React from 'react';
 import uuid from 'uuid';
+import { unionWith, eqBy, prop } from 'ramda';
 
 export const DATA_REQUEST = 'redux-datatable/rows/DATA_REQUEST';
 export const DATA_FAILURE = 'redux-datatable/rows/DATA_FAILURE';
@@ -13,8 +14,8 @@ export const SET_SELECTION = 'redux-datatable/bulkAction/SET_SELECTION';
 
 export default (state = [], action = null) => {
   switch (action.type) {
-    case DATA_REQUEST: {
-      
+    case DATA_SUCCESS: {
+      return unionWith(eqBy(prop('id')), action.data, state);
     }
     case SELECT_ALL:
     {

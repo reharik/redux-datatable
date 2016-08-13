@@ -4,9 +4,6 @@ import { bulkSelectionColumn } from '../components/CheckBox';
 import {setColumns} from './../modules/columnModule';
 
 export default function(dispatch, ownProps) {
-  console.log('==========ownProps.config=========');
-  console.log(ownProps.config);
-  console.log('==========END ownProps.config=========');
   var config = updateConfigs(ownProps.config);
   var columns = ownProps.columns;
 
@@ -19,9 +16,6 @@ export default function(dispatch, ownProps) {
     dispatch(setColumns(ownProps.columns))
   }
 
-  console.log('==========config=========');
-  console.log(config);
-  console.log('==========END config=========');
   if(config.dataSource) {
     fetchData(dispatch, config);
   }

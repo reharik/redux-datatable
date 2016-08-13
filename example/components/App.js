@@ -65,7 +65,7 @@ export default () => {
   ];
 
   const dataSource = function() {
-    return Promise.resolve(data);
+    return Promise.resolve({ok:true, data});
   };
 
   const config = {
