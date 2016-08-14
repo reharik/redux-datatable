@@ -2,7 +2,7 @@
   "name": "redux-datatable",
   "version": "0.0.1",
   "description": "",
-  "main": "build/redux-datatable.js",
+  "main": "lib/redux-datatable.js",
   "scripts": {
     "start": "webpack-dev-server --progress --config ./webpack.config.js",
     "build": "webpack --config ./webpack.build.config.js --progress",
