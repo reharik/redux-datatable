@@ -329,9 +329,6 @@ textarea {
 /*$num-width: 80px;*/
 /* ------------- end reset ----------- */
 html, body {
-    box-sizing: border-box;
-    font-family: helvetica,sans-serif;
-    font-size: 14px;
     height: 100%;
     width: 100%
 }
