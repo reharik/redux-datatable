@@ -329,9 +329,6 @@ textarea {
 /*$num-width: 80px;*/
 /* ------------- end reset ----------- */
 html, body {
-    box-sizing: border-box;
-    font-family: helvetica,sans-serif;
-    font-size: 14px;
     height: 100%;
     width: 100%
 }
@@ -417,7 +414,7 @@ a {
 /*width: $num-width;*/
 /*}*/
 body {
-    font-size: 20px
+    font-size: 12px
 }
 .redux__datatable__table__row {
     border-bottom: 2px solid #e0e0e0;
