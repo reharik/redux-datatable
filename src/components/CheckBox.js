@@ -40,6 +40,8 @@ export function bulkSelectionColumn(config) {
       row={row}
       identityColumn={config.bulkSelection.identityColumn}/>),
     headerFormat: ({column, value, row}) => (<HeaderCheckBox />),
+    headerClassName:'redux__datatable__bulkSelect',
+    className:'redux__datatable__bulkSelect',
     hidden: false
   }
 }
