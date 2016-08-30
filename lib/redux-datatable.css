@@ -437,7 +437,7 @@ body {
     border-bottom: 1px solid #e0e0e0;
     border-collapse: collapse
 }
-.redux__datatable__table__row:nth-child(odd) {
+.redux__datatable__table__row:nth-child(even) {
     background-color: #f6f6f6
 }
 .redux__datatable__table__header {
@@ -450,13 +450,27 @@ body {
     height: 28px
 }
 .redux__datatable__header__cell {
-    border-right: 1px solid #d3d3d3
+    border-left: 1px solid #d3d3d3
 }
-.redux__datatable__header__cell:last-child {
-    border-right: none
+.redux__datatable__header__cell:first-child {
+    border-left: none
 }
 .redux__datatable__row__cell {
     color: #666666;
     height: 28px;
     font-size: 11px
+}
+.redux__datatable__asc {
+    width: 16px;
+    height: 10px;
+    text-align: center;
+    font-weight: bold
+}
+.redux__datatable__desc {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    width: 16px;
+    height: 10px;
+    text-align: center;
+    font-weight: bold
 }
