@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Table from '../components/Table';
 import initialize from './../utilities/initialize'
+import { sort } from './../modules/columnModule'
+import { bindActionCreators } from 'redux'
 
 function mapStateToProps(state) {
   return {
@@ -11,7 +13,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   initialize(dispatch, ownProps);
-  return {};
+  return {sort: bindActionCreators(sort, dispatch)};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

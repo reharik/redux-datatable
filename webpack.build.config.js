@@ -43,6 +43,18 @@ const webpackConfig = {
         include: [ path.resolve(__dirname, 'src/css') ],
         loader: ExtractTextPlugin.extract('style', 'css-loader?modules&importLoaders=1&localIdentName=redux__datatable__[local]!postcss-loader')
         // loader: 'style!css-loader?sourceMap=1&modules&importLoaders=1&localIdentName=[local]!postcss-loader'
+      },
+      {
+        test: /\.png$/, include: [path.resolve(__dirname, 'src/css/images')],
+        loader: "url-loader", query: {mimetype: "image/png"}
+      },
+      {
+        test: /\.jpg$/, include: [path.resolve(__dirname, 'src/css/images')],
+        loader: "url-loader", query: {mimetype: "image/jpg"}
+      },
+      {
+        test: /\.gif$/, include: [path.resolve(__dirname, 'src/css/images')],
+        loader: "url-loader", query: {mimetype: "image/gif"}
       }
     ]
   },

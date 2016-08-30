@@ -63,7 +63,6 @@ a {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  border-right: 1px solid #d3d3d3;
   padding-left: 7px;
 }
 

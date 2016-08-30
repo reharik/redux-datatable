@@ -3,10 +3,10 @@ import Header from './Header';
 import Row from './Row';
 import uuid from 'uuid';
 
-const Table = ({columns, tableData}) => {
+const Table = ({columns, tableData, sort}) => {
   return (
     <div >
-      <Header columns={columns} />
+      <Header columns={columns} sort={sort} />
       {tableData.map(d => (<Row columns={columns} data={d} key={uuid.v4()} />))}
     </div>);
 }

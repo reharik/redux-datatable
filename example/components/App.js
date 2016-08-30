@@ -25,6 +25,7 @@ export default () => {
       hidden: false
     },
     {
+      sort:true,
       property:'lastName',
       display:'Last Name',
       width: '100px',
@@ -50,6 +51,10 @@ export default () => {
       hidden: false
     },
     {
+      property: 'age',
+      sort:true
+    },
+    {
       property:'id',
       hidden: true
     }
@@ -57,10 +62,10 @@ export default () => {
 
   const data= [
     {
-      firstName:'Raif', lastName:'Harik', email:'f@u.com', id:uuid.v4()
+      firstName:'Raif', age:33, lastName:'Harik', email:'f@u.com', id:uuid.v4()
     },
     {
-      firstName:'Robbie', lastName:'Fuentes', email:'robbie@fuenties.com', id:uuid.v4()
+      firstName:'Robbie', age: 66, lastName:'Fuentes', email:'robbie@fuenties.com', id:uuid.v4()
     }
   ];
 

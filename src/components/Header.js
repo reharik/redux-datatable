@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderCell from './HeaderCell';
 import uuid from 'uuid';
 
-const Header = ({columns}) => {
+const Header = ({columns, sort}) => {
   const getValue = function(c) {
    let text = c.display || c.property;
    return c.headerFormat
@@ -11,7 +11,7 @@ const Header = ({columns}) => {
   };
   return (
     <div className="redux__datatable__table__header">
-      { columns.map(c => (<HeaderCell value={getValue(c)} column={c} key={uuid.v4()} /> )) }
+      { columns.map(c => (<HeaderCell sort={sort} value={getValue(c)} column={c} key={uuid.v4()} /> )) }
     </div>);
 };
 
