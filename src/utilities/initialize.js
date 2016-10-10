@@ -20,7 +20,7 @@ export default function(dispatch, ownProps) {
     dispatch(setColumns(map))
   }
 
-  if(_config.dataSource) {
+  if(_config.dataSource || _config.dispatchDataSource) {
     fetchData(dispatch, _config);
   }
 }
