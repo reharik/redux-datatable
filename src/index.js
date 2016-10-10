@@ -3,6 +3,9 @@ export { default as tableReducers } from './modules/index';
 
 export { default as Table } from './containers/TableContainer';
 
+export {DATA_REQUEST,
+  DATA_FAILURE,
+  DATA_SUCCESS} from './modules/dataRowModule'
 
 //TODO
 //TODO
@@ -11,7 +14,7 @@ export { default as Table } from './containers/TableContainer';
 //TODO   xa) inline sort of api middleware (takes a url)
 //TODO   xb) function returns a promise (takes function)
 //TODO   xc) function takes a dispatch and ultimately fires the proper action
-//TODO    d) need to work in api parameters for sort and page etc. 
+//TODO    d) need to work in api parameters for sort and page etc.
 //TODO    e) maybe make dataSource an object to accept various data retrieval configs
 //TODO
 //TODO
