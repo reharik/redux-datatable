@@ -1,7 +1,7 @@
 import {merge} from 'lodash';
 
 let config = {
-  dataSource: '',
+  dataSource: undefined,
   bulkSelection: {
     mode:'none',
     identityColumn: 'id'
