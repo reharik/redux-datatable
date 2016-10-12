@@ -30,7 +30,7 @@ const sort = function (a, b, dir) {
 export default (state = [], action = null) => {
   switch (action.type) {
     case DATA_SUCCESS: {
-      return unionWith(eqBy(prop('id')), action.data, state);
+      return unionWith(eqBy(prop('id')), action[config.actionDataProp], state);
     }
     case SELECT_ALL: {
       return state.map(x => {

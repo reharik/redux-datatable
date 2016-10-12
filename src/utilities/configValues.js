@@ -5,7 +5,8 @@ let config = {
   bulkSelection: {
     mode:'none',
     identityColumn: 'id'
-  }
+  },
+  actionDataProp: 'payload'
   //bunch of default values here;
 };
 
