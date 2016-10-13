@@ -8,7 +8,7 @@ const Row = ({columns, data}) => {
     const style = c.hidden
       ? { display: 'none'}
       : { width: c.width || '100px'};
-     const value = typeof c.property === 'function'
+     const value = typeof c.property === 'function' 
       ? c.property({column:c, row:data})
       : data[c.property];
 
