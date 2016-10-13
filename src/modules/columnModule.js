@@ -43,10 +43,19 @@ export function sort(column) {
   }
 }
 
+function getValue(opts, prop){
+  if(prop && prop.length>0){
+    return prop;
+  }else if(opts.property !== 'function'){
+    return opts.property;
+  }
+  return undefind;
+}
+
 export function column (opts) {
   //TODO put in validation
-  var sortProperty = opts.sortProperty || typeof property !== 'function' ? opts.property : '';
-  var display = opts.display || typeof property !== 'function' ? opts.property : '';
+  var sortProperty = getValue(opts, opts.sortProperty);
+  var display = getValue(opts, opts.display);
   var sort = opts.sort;
   if(!sort || !sortProperty){
     sort = false;
