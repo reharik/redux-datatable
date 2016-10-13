@@ -45,12 +45,12 @@ export function sort(column) {
 
 export function column (opts) {
   //TODO put in validation
-  var sortProperty = opts.sortProperty || opts.property;
+  var sortProperty = opts.sortProperty || typeof property !== 'function' ? opts.property : '';
+  var display = opts.display || typeof property !== 'function' ? opts.property : '';
   var sort = opts.sort;
-  if(sort && typeof sortProperty === 'function' ){
-    sort = false; 
+  if(!sort || !sortProperty){
+    sort = false;
   }
-  var display = opts.display || typeof property !== 'function' ? opts.property : '';  
 
   return {
     property: opts.property,
