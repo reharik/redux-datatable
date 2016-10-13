@@ -12,7 +12,7 @@ const HeaderCell = ({column, value, sort}) => {
   return (
     <div className={className} style={style} onClick={e => action(column)} >
       {value}
-      {column.dir ? <span className={'redux__datatable__'+column.dir }>^</span>:null}
+      {column.dir ? <span className={'redux__datatable__' + column.dir }>^</span>:null}
       </div>
   );
 };

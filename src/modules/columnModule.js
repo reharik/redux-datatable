@@ -11,7 +11,7 @@ export default (state = [], action = null) => {
     }
     case SORT: {
       return state.map(x => {
-        if (x.property === action.property) {
+        if (x.sortProperty === action.property) {
           x.dir = x.dir === 'asc' ? 'desc' : 'asc';
         } else {
           x.dir = '';
@@ -37,7 +37,7 @@ export function sort(column) {
   }else {
     return {
       type: SORT,
-      property: column.property,
+      property: column.sortProperty,
       dir: column.dir === 'asc' ? 'desc' : 'asc'
     };
   }
@@ -45,17 +45,24 @@ export function sort(column) {
 
 export function column (opts) {
   //TODO put in validation
+  var sortProperty = opts.sortProperty || opts.property;
+  var sort = opts.sort;
+  if(sort && typeof sortProperty === 'function' ){
+    sort = false; 
+  }
+  var display = opts.display || typeof property !== 'function' ? opts.property : '';  
+
   return {
     property: opts.property,
-    display: opts.display || opts.property,
+    display,
     width: opts.width || '100px',
     additionalStyle: opts.additionalStyle,
     className: opts.className,
     headerClassName: opts.headerClassName,
-    format: opts.format,
     headerFormat: opts.headerFormat,
     hidden: opts.hidden,
-    sort: opts.sort
+    sort,
+    sortProperty
   }
 }
 

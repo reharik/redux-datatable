@@ -8,8 +8,8 @@ const Row = ({columns, data}) => {
     const style = c.hidden
       ? { display: 'none'}
       : { width: c.width || '100px'};
-     const value = c.format
-      ? c.format({column:c, value:data[c.property], row:data})
+     const value = typeof c.property === 'function'
+      ? c.property({column:c, row:data})
       : data[c.property];
 
     return (<RowCell text={value} style={style} className={c.className} key={uuid.v4()} />)

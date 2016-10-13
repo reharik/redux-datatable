@@ -30,7 +30,10 @@ const sort = function (a, b, dir) {
 export default (state = [], action = null) => {
   switch (action.type) {
     case DATA_SUCCESS: {
-      return unionWith(eqBy(prop('id')), action[config.actionDataProp], state);
+      //obviously there's a pointfree way to do this.
+      return state.length <= 0
+      ? action[config.actionDataProp]
+      : unionWith(eqBy(prop('id')), action[config.actionDataProp], state);
     }
     case SELECT_ALL: {
       return state.map(x => {

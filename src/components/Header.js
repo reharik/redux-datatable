@@ -4,10 +4,9 @@ import uuid from 'uuid';
 
 const Header = ({columns, sort}) => {
   const getValue = function(c) {
-   let text = c.display || c.property;
    return c.headerFormat
-      ? c.headerFormat({column:c, value:text, row:columns})
-      : text;
+      ? c.headerFormat({column:c, value:c.display, row:columns})
+      : c.display;
   };
   return (
     <div className="redux__datatable__table__header">
