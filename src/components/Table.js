@@ -3,7 +3,7 @@ import Header from './Header';
 import Row from './Row';
 import uuid from 'uuid';
 
-const Table = ({columns, tableData, sort}) => {
+const Table = ({columns, tableData=[], sort}) => {
   return (
     <div >
       <Header columns={columns} sort={sort} />

@@ -21,6 +21,7 @@ const sort = function (a, b, dir) {
   }
   if (_a > _b) {
     result = 1;
+
   } else if (_a < _b) {
     result = -1;
   }
