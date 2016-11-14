@@ -60,7 +60,7 @@ export default () => {
     }
   ];
 
-  const data= [
+  const testData = [
     {
       firstName:'Raif', age:33, lastName:'Harik', email:'f@u.com', id:uuid.v4()
     },
@@ -69,15 +69,18 @@ export default () => {
     }
   ];
 
-  const dataSource = function() {
-    return Promise.resolve({ok:true, data});
-  };
-
   const config = {
       bulkSelection: {
         mode:'single'
     },
-    dataSource
+    tableName: 'testTable',
+    fetchDataAction: () => {
+      return {
+        type: "getData",
+        data:testData
+      };
+    },
+    dataSource: 'testData'
   };
 
   return (<div className="redux__datatable__app" >

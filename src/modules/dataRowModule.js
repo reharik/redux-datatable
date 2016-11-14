@@ -10,7 +10,7 @@ export const DATA_SUCCESS = 'redux-datatable/rows/DATA_SUCCESS';
 export const NO_EVENT = 'redux-datatable/bulkAction/NO_EVENT';
 export const SELECT_ALL = 'redux-datatable/bulkAction/SELECT_ALL';
 export const DESELECT_ALL = 'redux-datatable/bulkAction/DESELECT_ALL';
-export const SET_SELECTION = 'redux-datatable/bulkAction/SET_SELECTION';
+export const SET_SELECTION = 'redux-datatable/bulkAction/SELECT_ITEM';
 
 const sort = function (a, b, dir) {
   let result = 0;
@@ -28,37 +28,24 @@ const sort = function (a, b, dir) {
   return  dir === 'asc' ? result : result * -1;
 };
 
+//TODO this needs to return new state not mutate it
 export default (state = [], action = null) => {
   switch (action.type) {
-    case DATA_SUCCESS: {
-      //obviously there's a pointfree way to do this.
-      return state.length <= 0
-      ? action[config.actionDataProp]
-      : unionWith(eqBy(prop('id')), action[config.actionDataProp], state);
-    }
     case SELECT_ALL: {
-      return state.map(x => {
-        x.metaData = x.metaData || {};
-        x.metaData.selected = true;
-        return x;
-      });
+      return state[config.tableName].selectedItems = action.ids
     }
     case DESELECT_ALL: {
-      return state.map(x => {
-        x.metaData = x.metaData || {};
-        x.metaData.selected = false;
-        return x;
-      });
+      return state[config.tableName].selectedItems = [];
     }
     case SET_SELECTION: {
-      let item = state.filter(x=>x[config.bulkSelection.identityColumn] === action.id)[0];
-      item.metaData = item.metaData || {};
-      item.metaData.selected = !item.metaData.selected;
-      state.splice(state.findIndex(x => x[config.bulkSelection.identityColumn] === action.id), 1, item);
-      return [...state];
+      if(state.selectedItems[config.tableName].indexOf(action.id)<0){
+        state.selectedItems[config.tableName].push(action.id);
+      }
+      return state
     }
     case SORT: {
-      state.sort((a,b)=>sort(a[action.property],b[action.property], action.dir)).map(x=>x);
+      state[config.tableName].sort = {property:action.property, dir:action.dir};
+      return state;
     }
   }
   return state;
@@ -85,8 +72,9 @@ export function handleSelectionEvent (selectionEvent, dispatch) {
   }
 }
 
-export function selectAll() {
-  return { type: SELECT_ALL };
+export function selectAll(itemIds) {
+  return { type: SELECT_ALL,
+  ids: itemIds };
 }
 
 export function deselectAll() {
@@ -105,4 +93,3 @@ export function setSelection(column, id) {
     selectionMode: column.bulkSelection.mode
   };
 }
-

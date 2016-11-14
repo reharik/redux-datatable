@@ -4,13 +4,13 @@ import {config} from './../utilities/configValues';
 export const SET_COLUMNS = 'redux-datatable/column/SET_COLUMNS';
 export const SORT = 'redux-datatable/column/SORT';
 
-export default (state = [], action = null) => {
+export default (state = {}, action = null) => {
   switch (action.type) {
     case SET_COLUMNS: {
-      return action.columns;
+      return state[config.tablerName].coulumns = action.columns;
     }
     case SORT: {
-      return state.map(x => {
+      return state[config.tablerName].coulmns.map(x => {
         if (x.sortProperty === action.property) {
           x.dir = x.dir === 'asc' ? 'desc' : 'asc';
         } else {
@@ -52,6 +52,7 @@ function getValue(opts, prop){
   return undefind;
 }
 
+//TODO not sure what the hell this is doing. please figure it out and eitehr explain or kill
 export function column (opts) {
   //TODO put in validation
   var sortProperty = getValue(opts, opts.sortProperty);

@@ -2,13 +2,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 
-import tableReducers from './../reducers';
+import reduxDataTable from './../reducers';
 import DevTools from '../components/DevTools';
-
 
 export default function configureStore(initialState) {
   const store = createStore(
-        tableReducers,
+        reduxDataTable,
         initialState,
         compose(
             applyMiddleware(createLogger()),

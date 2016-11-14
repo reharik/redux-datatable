@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { selectAll, deselectAll, setSelection, handleSelectionEvent } from '../modules/dataRowModule';
+import { config } from './../utilities/configValues';
+import { selectAll, deselectAll, setSelection, handleSelectionEvent } from '../modules/tableModule';
 
 const checkBox = ({column, row, identityColumn, dispatch}) => {
   const change = function(e, row, column) {
@@ -28,7 +29,7 @@ const headerCheckBox = ({selectAllChecked, dispatch}) => {
 };
 
 const CheckBox = connect()(checkBox);
-const HeaderCheckBox = connect( x=> ({selectAllChecked: x.header.selectAll}))(headerCheckBox);
+const HeaderCheckBox = connect( x=> ({selectAllChecked: x.reduxDataTable[config.tableName] ? x.reduxDataTable[config.tableName].selectAll:false}))(headerCheckBox);
 
 export function bulkSelectionColumn(config) {
   return {

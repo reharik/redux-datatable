@@ -1,7 +1,5 @@
-import columnReducer from './columnModule';
-import dataRowReducer from './dataRowModule';
-import headerReducer from './headerModule';
+import reduxDataTable from './tableModule';
 
 
-export default { columns: columnReducer, tableData: dataRowReducer, header:headerReducer };
+export default { reduxDataTable };
 
