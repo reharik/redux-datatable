@@ -7,8 +7,7 @@ let config = {
     mode:'none',
     identityColumn: 'id'
   },
-  actionDataProp: 'payload',
-  tableName : uuid.v4().toString().replace(/-/g,'')
+  actionDataProp: 'payload'
   //bunch of default values here;
 };
 
