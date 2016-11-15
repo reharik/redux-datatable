@@ -1,6 +1,7 @@
 import React from 'react';
 import RowCell from './RowCell';
 import uuid from 'uuid';
+import selectn from 'selectn';
 
 const Row = ({columns, data}) => {
 
@@ -10,7 +11,7 @@ const Row = ({columns, data}) => {
       : { width: c.width || '100px'};
      const value = typeof c.property === 'function' 
       ? c.property({column:c, row:data})
-      : data[c.property];
+      : selectn(c.property, data);
 
     return (<RowCell text={value} style={style} className={c.className} key={uuid.v4()} />)
   });
