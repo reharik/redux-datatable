@@ -8,14 +8,11 @@ let config = {
     identityColumn: 'id'
   },
   actionDataProp: 'payload',
-  tableName : uuid.v4()
+  tableName : uuid.v4().toString().replace(/-/g,'')
   //bunch of default values here;
 };
 
 export function updateConfigs(newConfig) {
-  console.log('=========="HERE"=========');
-  console.log("HERE");
-  console.log('==========END "HERE"=========');
 
   //TODO validate configs as we define them
   merge(config, newConfig);
