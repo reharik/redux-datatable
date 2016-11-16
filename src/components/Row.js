@@ -10,7 +10,7 @@ const Row = ({columns, data}) => {
       ? { display: 'none'}
       : { width: c.width || '100px'};
      const value = typeof c.property === 'function' 
-      ? c.property({column:c, value:selectn(c.property, data), row:data})
+      ? c.property({column:c, value:selectn(c.propertyName, data), row:data})
       : selectn(c.property, data);
 
     return (<RowCell text={value} style={style} className={c.className} key={uuid.v4()} />)

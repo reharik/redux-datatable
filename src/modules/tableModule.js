@@ -165,6 +165,9 @@ export function sort(tableName) {
   }
 }
 
+// this is saying if this property has a value use it,
+// else try the propety ... property, and if that's a func
+// then you are screwed and you don't ge a value result
 function getValue(opts, prop){
   if(prop && prop.length>0){
     return prop;
@@ -174,7 +177,6 @@ function getValue(opts, prop){
   return undefind;
 }
 
-//TODO not sure what the hell this is doing. please figure it out and eitehr explain or kill
 export function column (opts) {
   //TODO put in validation
   var sortProperty = getValue(opts, opts.sortProperty);
@@ -187,6 +189,7 @@ export function column (opts) {
   return {
     property: opts.property,
     display,
+    propertyName: opts.propertyName,
     width: opts.width || '100px',
     additionalStyle: opts.additionalStyle,
     className: opts.className,
