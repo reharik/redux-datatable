@@ -1,6 +1,6 @@
 import {updateConfigs } from './configValues';
 import { bulkSelectionColumn } from '../components/CheckBox';
-import { column } from './../modules/columnModule';
+import { column } from './../modules/tableModule';
 
 export default function({configured,
   setColumns,
